@@ -20,23 +20,27 @@ function TaskList() {
     }
 
   return (
-    <div>
-<h2>Tasks</h2>
-<ul>
-    {tasks.map((task)=>(
-       <li>
-        <div>
-            <p>{task.title}</p>
-            <p>{task.description&& <p>{task.description}</p>}</p>
-            <p>Status:{task.status}</p>
-        </div>
-        <div>
-            <button>edit</button>
-            <button>delete</button>
-        </div>
-       </li>
-    ))}
-</ul>
+    <div className=' h-screen bg-gray-50  flex justify-center items-center flex-col'>
+
+<div className=' bg-white rounded-3xl w-full lg:w-1/2  h-[95vh] px-6 shadow-sm'>
+<p className='text-center font-bold p-10 text-3xl ' >Task Management App</p>
+    <ul className='space-y-4 mt-3 '>
+        {tasks.map((task)=>(
+           <li key={task.id} className=' bg-gray-50  p-4 rounded-xl shadow-sm flex justify-between items-center'>
+            <div>
+                <h3 className='text-lg font-medium text-gray-800'>{task.title}</h3>
+               {task.description&& <p className='text-gray-600'>{task.description}</p>}
+                <p className='mt-1 text-sm font-semibold'>Status:
+                    <span className='italic underline'> {task.status}</span></p>
+            </div>
+            <div className='flex space-x-2'>
+                <button className='px-3 py-1 bg-green-400 text-white rounded-md hover:bg-green-600 '>Edit</button>
+                <button className='px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-800'>Delete</button>
+            </div>
+           </li>
+        ))}
+    </ul>
+</div>
     </div>
   )
 }
