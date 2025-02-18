@@ -9,6 +9,10 @@ function TaskList() {
         <p>
          Tasks Loading....</p>
     }
+    if(error)
+    {
+    <p>There is an error {error}</p>
+    }
   return (
     <div>TaskList</div>
   )
