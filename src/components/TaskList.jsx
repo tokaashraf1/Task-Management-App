@@ -14,7 +14,20 @@ function TaskList() {
     <p>There is an error {error}</p>
     }
   return (
-    <div>TaskList</div>
+    <div>
+<h2>Tasks</h2>
+<ul>
+    {tasks.map((task)=>(
+       <li>
+        <div>
+            <p>{task.title}</p>
+            <p>{task.description&& <p>{task.description}</p>}</p>
+            <p>Status:{task.status}</p>
+        </div>
+       </li>
+    ))}
+</ul>
+    </div>
   )
 }
 
