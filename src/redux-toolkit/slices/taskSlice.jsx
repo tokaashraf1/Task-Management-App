@@ -5,7 +5,7 @@ const initialState = {
   error: null,
   status: "All",
 };
- const fetchTodo = createAsyncThunk("fetchTodo", async () => {
+ export const fetchTodo = createAsyncThunk("fetchTodo", async () => {
   const response = await fetch(
     "https://jsonplaceholder.typicode.com/todos?_limit=5"
   );
