@@ -24,6 +24,10 @@ function TaskList() {
             <p>{task.description&& <p>{task.description}</p>}</p>
             <p>Status:{task.status}</p>
         </div>
+        <div>
+            <button>edit</button>
+            <button>delete</button>
+        </div>
        </li>
     ))}
 </ul>
