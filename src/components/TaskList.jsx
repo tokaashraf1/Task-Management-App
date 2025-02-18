@@ -9,7 +9,7 @@ function TaskList() {
     const dispatch=useDispatch()
     useEffect(()=>{
    dispatch(fetchTodo())     
-    },[])
+    },[dispatch])
 
     if (loading){
        return <p> Tasks Loading....</p>
