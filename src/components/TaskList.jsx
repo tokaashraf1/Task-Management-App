@@ -1,10 +1,16 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+import { fetchTodo } from '../redux-toolkit/slices/taskSlice'
 
 function TaskList() {
     const tasks = useSelector((state)=>state.tasks.tasks)
     const loading = useSelector((state)=>state.tasks.loading)
     const error = useSelector((state)=>state.tasks.error)
+    const dispatch=useDispatch()
+    useEffect(()=>{
+   dispatch(fetchTodo())     
+    },[])
+
     if (loading){
        return <p> Tasks Loading....</p>
     }
@@ -12,6 +18,7 @@ function TaskList() {
     {
     return <p>There is an error {error}</p>
     }
+
   return (
     <div>
 <h2>Tasks</h2>
