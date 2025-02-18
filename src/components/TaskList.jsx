@@ -3,6 +3,12 @@ import { useSelector } from 'react-redux'
 
 function TaskList() {
     const tasks = useSelector((state)=>state.tasks.tasks)
+    const loading = useSelector((state)=>state.tasks.loading)
+    const error = useSelector((state)=>state.tasks.error)
+    if (loading){
+        <p>
+         Tasks Loading....</p>
+    }
   return (
     <div>TaskList</div>
   )
