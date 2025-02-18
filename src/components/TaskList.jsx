@@ -20,11 +20,11 @@ function TaskList() {
     }
 
   return (
-    <div className=' h-screen bg-gray-50  flex justify-center items-center flex-col'>
+    <div className=' '>
 
-<div className=' bg-white rounded-3xl w-full lg:w-1/2  h-[95vh] px-6 shadow-sm'>
-<p className='text-center font-bold p-10 text-3xl ' >Task Management App</p>
-    <ul className='space-y-4 mt-3 '>
+<div className=' '>
+
+    <ul className='space-y-4  '>
         {tasks.map((task)=>(
            <li key={task.id} className=' bg-gray-50  p-4 rounded-xl shadow-sm flex justify-between items-center'>
             <div>
