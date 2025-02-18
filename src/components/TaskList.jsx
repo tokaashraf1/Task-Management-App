@@ -6,12 +6,11 @@ function TaskList() {
     const loading = useSelector((state)=>state.tasks.loading)
     const error = useSelector((state)=>state.tasks.error)
     if (loading){
-        <p>
-         Tasks Loading....</p>
+       return <p> Tasks Loading....</p>
     }
     if(error)
     {
-    <p>There is an error {error}</p>
+    return <p>There is an error {error}</p>
     }
   return (
     <div>
