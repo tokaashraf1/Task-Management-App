@@ -5,7 +5,7 @@ const initialState = {
   error: null,
   status: "All",
 };
- export const fetchTodo = createAsyncThunk("fetchTodo", async () => {
+export const fetchTodo = createAsyncThunk("fetchTodo", async () => {
   const response = await fetch(
     "https://jsonplaceholder.typicode.com/todos?_limit=5"
   );
@@ -21,8 +21,8 @@ const taskSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
-    addTask:(state,action)=>{
-      state.tasks.push(action.payload)
+    addTask: (state, action) => {
+      state.tasks.push(action.payload);
     },
     editTask: (state, action) => {
       state.tasks = state.tasks.map((task) =>
@@ -30,24 +30,26 @@ const taskSlice = createSlice({
       );
     },
     deleteTask: (state, action) => {
-   state.tasks=state.tasks.filter(task=>task.id !== action.payload)
-    }
-
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+    },
   },
 
   extraReducers: (builder) => {
-    builder.addCase(fetchTodo.pending, (state) => {
-      state.loading = true;
-      state.error = null;
-    }).addCase(fetchTodo.fulfilled, (state, action) => {
-      state.loading = false;
-      state.tasks = action.payload;
-    }).addCase(fetchTodo.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.error.message;
-    });
+    builder
+      .addCase(fetchTodo.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchTodo.fulfilled, (state, action) => {
+        state.loading = false;
+        state.tasks = action.payload;
+      })
+      .addCase(fetchTodo.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
-export const {addTask,editTask,deleteTask}=taskSlice.actions
+export const { addTask, editTask, deleteTask } = taskSlice.actions;
 
-export default taskSlice.reducer
+export default taskSlice.reducer;

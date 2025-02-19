@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {v4 as uuid4} from "uuid"
 import { addTask } from "../redux-toolkit/slices/taskSlice";
-
 function AddTask() {
   const[title,setTitle]=useState("")
   const[description,setDescription]=useState("")
@@ -10,7 +9,6 @@ function AddTask() {
   const dispatch= useDispatch()
   const handleSubmit=(e)=>{
    e.preventDefault()
-
    const newTask={
     id:uuid4(),
     title,
@@ -23,7 +21,8 @@ function AddTask() {
    setStatus("To Do")
   }
   return (
-    <div>
+    <div >
+   
       <form className="mb-6" onSubmit={handleSubmit}>
         <h2 className="text-xl font-semibold mb-3 text-indigo-500 ">
           Add New Task

@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { deleteTask, fetchTodo } from '../redux-toolkit/slices/taskSlice'
 import EditTask from './EditTask'
-
-
 function TaskList() {
     const tasks = useSelector((state)=>state.tasks.tasks)
     const loading = useSelector((state)=>state.tasks.loading)
