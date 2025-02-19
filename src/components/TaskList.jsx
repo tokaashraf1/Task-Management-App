@@ -12,6 +12,7 @@ function TaskList() {
     useEffect(()=>{
    dispatch(fetchTodo())     
     },[dispatch])
+
 const handleDelete=(id)=>{
 dispatch(deleteTask(id))
 }
