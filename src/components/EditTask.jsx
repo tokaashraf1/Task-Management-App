@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { editTask } from '../redux-toolkit/slices/taskSlice'
 
 
 function EditTask({task}) {
@@ -8,6 +9,10 @@ function EditTask({task}) {
        const[description,setDescription]=useState(task.description)
        const[status,setStatus]=useState(task.status)
          const dispatch= useDispatch()
+         const handleEdit=()=>{
+            dispatch(editTask({id:task.id,title,description,status}))
+            setTIsEdit(false)
+         }
   return (
     <div>
         {isEdit?
@@ -50,6 +55,7 @@ function EditTask({task}) {
          <button
            type="submit"
            className=" bg-indigo-600 text-white py-2 px-2 rounded-md hover:bg-indigo-700"
+           onClick={handleEdit}
          >
           Edit
          </button>
