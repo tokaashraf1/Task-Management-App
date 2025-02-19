@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 function AddTask() {
+  const[title,setTitle]=useState("")
+  const[description,setDescription]=useState("")
+  const[status,setStatus]=useState("")
   return (
     <div>
-      <form className="mb-6">
+      <form className="mb-6" onSubmit={handleSubmit}>
         <h2 className="text-xl font-semibold mb-3 text-indigo-500 ">
           Add New Task
         </h2>
         <div className="mb-4">
           <input
             type="text"
+            value="title"
+            onChange={(e)=>setTitle(e.target.value)}
             placeholder="Task Title"
             className=" w-full px-3 py-2 border rounded-md foucs:outline-none foucs:ring-2 "
             required
@@ -18,13 +23,18 @@ function AddTask() {
         <div className="mb-4">
           <textarea
             placeholder="Task Description"
+            value={description}
             className="w-full px-3 py-2 border rounded-md foucs:outline-none foucs:ring-2 "
+            onChange={(e)=>setDescription(e.target.value)}
             required
           ></textarea>
         </div>
 
         <div className="mb-4">
-          <select className="w-full px-3 py-2 border rounded-md foucs:outline-none foucs:ring-2 ">
+          <select className="w-full px-3 py-2 border rounded-md foucs:outline-none foucs:ring-2 "
+          value={status}
+          onChange={(e)=>setStatus(e.target.value)}
+          >
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
             <option value="Completed">Completed</option>
