@@ -6,4 +6,4 @@ completed.
  ## 🚀Website Preview
 <br>
 <br>
-<img src="src/img/img1.png" alt="img" width="600" />
+<img src="src/imgs/img1.png" alt="img" width="600" />
