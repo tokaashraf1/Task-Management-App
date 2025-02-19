@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import {v4 as uuid4} from "uuid"
+import { addTask } from "../redux-toolkit/slices/taskSlice";
 
 function AddTask() {
   const[title,setTitle]=useState("")
   const[description,setDescription]=useState("")
-  const[status,setStatus]=useState("")
+  const[status,setStatus]=useState("To Do")
   const dispatch= useDispatch()
   const handleSubmit=(e)=>{
    e.preventDefault()
@@ -16,6 +17,10 @@ function AddTask() {
     description,
     status,
    }
+   dispatch(addTask(newTask))
+   setTitle("")
+   setDescription("")
+   setStatus("To Do")
   }
   return (
     <div>
@@ -26,7 +31,7 @@ function AddTask() {
         <div className="mb-4">
           <input
             type="text"
-            value="title"
+            value={title}
             onChange={(e)=>setTitle(e.target.value)}
             placeholder="Task Title"
             className=" w-full px-3 py-2 border rounded-md foucs:outline-none foucs:ring-2 "
